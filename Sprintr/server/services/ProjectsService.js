@@ -8,7 +8,6 @@ class ProjectsService {
   }
 
   async getOne(id, userId) {
-    // const project = await dbContext.projects.findOne({ _id: id, creatorId: userId })
     const project = await dbContext.Projects.findById(id).populate('creator', 'name picture')
     if (!project) {
       throw new BadRequest('Invalid Id')
