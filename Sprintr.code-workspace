@@ -52,6 +52,10 @@
       "titleBar.inactiveBackground": "#96abd999",
       "titleBar.inactiveForeground": "#15202b99"
     },
-    "peacock.color": "#96abd9"
+    "peacock.color": "#96abd9",
+    "cSpell.words": [
+      "Sprintr",
+      "mongodb"
+    ]
   }
 }
