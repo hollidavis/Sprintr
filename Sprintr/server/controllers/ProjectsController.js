@@ -14,7 +14,6 @@ export class ProjectsController extends BaseController {
       // .get('/:id/backlog', this.getBacklogByProjectId)
       // .get('/:id/sprints', this.getSprintsByProjectId)
       .post('', this.create)
-      .put('/:id', this.edit)
       .delete('/:id', this.destroy)
   }
 
@@ -65,20 +64,9 @@ export class ProjectsController extends BaseController {
     }
   }
 
-  async edit(req, res, next) {
-    try {
-      // NOTE NEVER TRUST THE CLIENT TO ADD THE CREATOR ID
-      req.body.creatorId = req.userInfo.id
-      const project = await projectsService.edit(req.body)
-      res.send(project)
-    } catch (error) {
-      next(error)
-    }
-  }
-
   async destroy(req, res, next) {
     try {
-      await projectsService.destroy(req.params.id)
+      await projectsService.destroy(req.params.id, req.userInfo.id)
       res.send({ message: 'Successfully Deleted' })
     } catch (error) {
       next(error)
