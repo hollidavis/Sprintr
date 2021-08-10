@@ -24,7 +24,11 @@ class BacklogsService {
   }
 
   async destroy(id) {
-    return await dbContext.Backlogs.findByIdAndDelete(id)
+    const backlog = await dbContext.Tasks.findByIdAndDelete(id)
+    if (!backlog) {
+      throw new BadRequest('Invalid Id')
+    }
+    return backlog
   }
 }
 export const backlogsService = new BacklogsService()

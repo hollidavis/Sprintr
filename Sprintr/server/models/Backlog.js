@@ -4,7 +4,6 @@ const ObjectId = Schema.Types.ObjectId
 export const BacklogSchema = new Schema(
   {
     name: [{ type: String, required: true }],
-    body: { type: String, default: '' },
     isOpen: { type: Boolean, default: false },
     projectId: { type: ObjectId, ref: 'Project', required: true },
     creatorId: { type: ObjectId, ref: 'Account', required: true }
