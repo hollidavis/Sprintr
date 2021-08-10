@@ -23,8 +23,8 @@ class BacklogsService {
     return await this.getOne(backlog.id, body.creatorId)
   }
 
-  async destroy(body) {
-    return await dbContext.Backlogs.findOneAndDelete({ id: body.id, creatorId: body.creatorId })
+  async destroy(id) {
+    return await dbContext.Backlogs.findByIdAndDelete(id)
   }
 }
 export const backlogsService = new BacklogsService()

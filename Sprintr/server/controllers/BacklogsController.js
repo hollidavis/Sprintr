@@ -44,7 +44,7 @@ export class BacklogsController extends BaseController {
 
   async destroy(req, res, next) {
     try {
-      await backlogsService.destroy(req.body)
+      await backlogsService.destroy(req.params.id)
       res.send({ message: 'Successfully Deleted' })
     } catch (error) {
       next(error)
