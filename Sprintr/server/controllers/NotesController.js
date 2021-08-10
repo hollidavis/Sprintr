@@ -1,16 +1,14 @@
 import { Auth0Provider } from '@bcwdev/auth0provider'
 import { notesService } from '../services/NotesService'
-import { tasksService } from '../services/TasksService'
 import BaseController from '../utils/BaseController'
 
-export class TasksController extends BaseController {
+export class NotesController extends BaseController {
   constructor() {
-    super('api/tasks')
+    super('api/notes')
     this.router
       .use(Auth0Provider.getAuthorizedUserInfo)
       .get('', this.getAll)
       .get('/:id', this.getOne)
-      .get('/:id/notes', this.getNotesByTaskId)
       .post('', this.create)
       .put('/:id', this.edit)
       .delete('/:id', this.destroy)
@@ -18,8 +16,8 @@ export class TasksController extends BaseController {
 
   async getAll(req, res, next) {
     try {
-      const tasks = await tasksService.getAll({ creatorId: req.userInfo.id })
-      res.send(tasks)
+      const notes = await notesService.getAll({ creatorId: req.userInfo.id })
+      res.send(notes)
     } catch (error) {
       next(error)
     }
@@ -27,17 +25,8 @@ export class TasksController extends BaseController {
 
   async getOne(req, res, next) {
     try {
-      const task = await tasksService.getOne(req.params.id, req.userInfo.id)
-      res.send(task)
-    } catch (error) {
-      next(error)
-    }
-  }
-
-  async getNotesByTaskId(req, res, next) {
-    try {
-      const notes = await notesService.getAll({ taskId: req.params.id })
-      res.send(notes)
+      const note = await notesService.getOne(req.params.id, req.userInfo.id)
+      res.send(note)
     } catch (error) {
       next(error)
     }
@@ -47,8 +36,8 @@ export class TasksController extends BaseController {
     try {
       // NOTE NEVER TRUST THE CLIENT TO ADD THE CREATOR ID
       req.body.creatorId = req.userInfo.id
-      const task = await tasksService.create(req.body)
-      res.send(task)
+      const note = await notesService.create(req.body)
+      res.send(note)
     } catch (error) {
       next(error)
     }
@@ -58,8 +47,8 @@ export class TasksController extends BaseController {
     try {
       // NOTE NEVER TRUST THE CLIENT TO ADD THE CREATOR ID
       req.body.creatorId = req.userInfo.id
-      const task = await tasksService.edit(req.params.id, req.body)
-      res.send(task)
+      const note = await notesService.edit(req.params.id, req.body)
+      res.send(note)
     } catch (error) {
       next(error)
     }
@@ -67,7 +56,7 @@ export class TasksController extends BaseController {
 
   async destroy(req, res, next) {
     try {
-      await tasksService.destroy(req.params.id)
+      await notesService.destroy(req.params.id)
       res.send({ message: 'Successfully Deleted' })
     } catch (error) {
       next(error)
