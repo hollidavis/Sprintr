@@ -24,7 +24,7 @@ class SprintsService {
   }
 
   async destroy(id) {
-    const sprint = await dbContext.Tasks.findByIdAndDelete(id)
+    const sprint = await dbContext.Sprints.findByIdAndDelete(id)
     if (!sprint) {
       throw new BadRequest('Invalid Id')
     }

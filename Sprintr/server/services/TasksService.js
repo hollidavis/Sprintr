@@ -33,6 +33,7 @@ class TasksService {
 
   async destroy(id) {
     const task = await dbContext.Tasks.findByIdAndDelete(id)
+    await dbContext.Notes.deleteMany({ taskId: id })
     if (!task) {
       throw new BadRequest('Invalid Id')
     }

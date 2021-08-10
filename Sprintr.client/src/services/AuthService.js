@@ -3,6 +3,7 @@ import { AppState } from '../AppState'
 import { audience, clientId, domain } from '../env'
 import { router } from '../router'
 import { accountService } from './AccountService'
+import { projectsService } from './ProjectsService'
 import { api } from './AxiosService'
 
 export const AuthService = initialize({
@@ -24,6 +25,7 @@ AuthService.on(AuthService.AUTH_EVENTS.AUTHENTICATED, async function() {
   api.interceptors.request.use(refreshAuthToken)
   AppState.user = AuthService.user
   await accountService.getAccount()
+  await projectsService.getAllProjects()
   // NOTE if there is something you want to do once the user is authenticated, place that here
 })
 

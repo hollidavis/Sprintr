@@ -3,7 +3,7 @@ const Schema = mongoose.Schema
 const ObjectId = Schema.Types.ObjectId
 export const ProjectSchema = new Schema(
   {
-    name: [{ type: String, required: true }],
+    name: { type: String, required: true },
     description: { type: String, required: true },
     creatorId: { type: ObjectId, ref: 'Account', required: true }
   },

@@ -3,7 +3,7 @@ const Schema = mongoose.Schema
 const ObjectId = Schema.Types.ObjectId
 export const SprintSchema = new Schema(
   {
-    name: [{ type: String, required: true }],
+    name: { type: String, required: true },
     startDate: { type: Date, required: true },
     endDate: { type: Date, required: true },
     isOpen: { type: Boolean, default: false },
