@@ -66,7 +66,7 @@ export class ProjectsController extends BaseController {
 
   async destroy(req, res, next) {
     try {
-      await projectsService.destroy(req.body)
+      await projectsService.destroy(req.params.id, req.userInfo.id)
       res.send({ message: 'Successfully Deleted' })
     } catch (error) {
       next(error)

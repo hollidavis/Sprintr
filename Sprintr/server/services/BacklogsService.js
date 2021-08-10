@@ -2,8 +2,8 @@ import { dbContext } from '../db/DbContext'
 import { BadRequest, Forbidden } from '../utils/Errors'
 
 class BacklogsService {
-  async getAll(userId) {
-    const backlogs = await dbContext.Backlogs.find({ creatorId: userId }).populate('creator', 'name picture')
+  async getAll(query = {}) {
+    const backlogs = await dbContext.Backlogs.find(query).populate('creator', 'name picture')
     return backlogs
   }
 
@@ -20,11 +20,11 @@ class BacklogsService {
 
   async create(body) {
     const backlog = await dbContext.Backlogs.create(body)
-    return await this.getOne(backlog._id, body.creatorId)
+    return await this.getOne(backlog.id, body.creatorId)
   }
 
   async destroy(body) {
-    return await dbContext.Backlogs.findByIdAndDelete({ id: body.id, creatorId: body.creatorId })
+    return await dbContext.Backlogs.findOneAndDelete({ id: body.id, creatorId: body.creatorId })
   }
 }
 export const backlogsService = new BacklogsService()

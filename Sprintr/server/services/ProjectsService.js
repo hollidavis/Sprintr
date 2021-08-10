@@ -23,8 +23,8 @@ class ProjectsService {
     return await this.getOne(project._id, body.creatorId)
   }
 
-  async destroy(body) {
-    return await dbContext.Projects.findByIdAndDelete({ id: body.id, creatorId: body.creatorId })
+  async destroy(id, userId) {
+    return await dbContext.Projects.findOneAndDelete({ id: id, creatorId: userId })
   }
 }
 export const projectsService = new ProjectsService()
