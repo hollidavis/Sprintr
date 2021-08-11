@@ -1,6 +1,6 @@
 <template>
   <nav class="child-navbar navbar navbar-expand-lg navbar-dark bg-primary">
-    <a class="navbar-brand" href="#">Navbar</a>
+    <a class="navbar-brand" href="#">{{ activeProject.name }}</a>
     <button class="navbar-toggler"
             type="button"
             data-bs-toggle="collapse"
@@ -56,10 +56,25 @@
 </template>
 
 <script>
+import { computed, onMounted } from '@vue/runtime-core'
+import { AppState } from '../AppState'
+import { useRoute } from 'vue-router'
+import { projectsService } from '../services/ProjectsService'
+import Pop from '../utils/Notifier'
 export default {
   name: 'ChildNavbar',
   setup() {
-    return {}
+    const router = useRoute()
+    onMounted(async() => {
+      try {
+        await projectsService.setActiveProject(router.params.id)
+      } catch (error) {
+        Pop.toast(error, 'error')
+      }
+    })
+    return {
+      activeProject: computed(() => AppState.activeProject)
+    }
   },
   components: {}
 }

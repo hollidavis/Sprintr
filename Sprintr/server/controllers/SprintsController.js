@@ -7,10 +7,10 @@ export class SprintsController extends BaseController {
   constructor() {
     super('api/sprints')
     this.router
-      .use(Auth0Provider.getAuthorizedUserInfo)
       .get('', this.getAll)
       .get('/:id', this.getOne)
       .get('/:id/tasks', this.getTasksBySprintId)
+      .use(Auth0Provider.getAuthorizedUserInfo)
       .post('', this.create)
       .delete('/:id', this.destroy)
   }
