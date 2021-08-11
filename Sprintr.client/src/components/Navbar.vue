@@ -1,6 +1,6 @@
 <template>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-    <router-link class="navbar-brand" :to="{ name: 'Home' }">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <router-link class="navbar-brand" :to="{ name: 'Home' }" title="Navigate to Home Page">
       Sprintr
     </router-link>
     <button class="navbar-toggler"
@@ -16,11 +16,11 @@
 
     <div class="collapse navbar-collapse" id="navbarColor01">
       <ul class="navbar-nav mr-auto">
-        <li class="nav-item">
+        <!-- <li class="nav-item">
           <router-link class="nav-link text-light" :to="{ name: 'Home' }">
             Home
           </router-link>
-        </li>
+        </li> -->
       </ul>
       <span class="navbar-text">
         <button

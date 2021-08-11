@@ -1,129 +1,79 @@
-// Sandstone 5.1.0
+// Lumen 5.1.0
 // Bootswatch
 
-$theme: "sandstone" !default;
+$theme: "lumen" !default;
 
 //
 // Color system
 //
 
 $white:    #fff !default;
-$gray-100: #f8f9fa !default;
-$gray-200: #f8f5f0 !default;
-$gray-300: #dfd7ca !default;
+$gray-100: #f6f6f6 !default;
+$gray-200: #f0f0f0 !default;
+$gray-300: #dee2e6 !default;
 $gray-400: #ced4da !default;
-$gray-500: #98978b !default;
-$gray-600: #8e8c84 !default;
-$gray-700: #495057 !default;
-$gray-800: #3e3f3a !default;
-$gray-900: #212529 !default;
+$gray-500: #adb5bd !default;
+$gray-600: #999 !default;
+$gray-700: #555 !default;
+$gray-800: #333 !default;
+$gray-900: #222 !default;
 $black:    #000 !default;
 
-$blue:    #325d88 !default;
+$blue:    #158cba !default;
 $indigo:  #6610f2 !default;
 $purple:  #6f42c1 !default;
 $pink:    #e83e8c !default;
-$red:     #d9534f !default;
-$orange:  #f47c3c !default;
-$yellow:  #ffc107 !default;
-$green:   #93c54b !default;
+$red:     #ff4136 !default;
+$orange:  #fd7e14 !default;
+$yellow:  #ff851b !default;
+$green:   #28b62c !default;
 $teal:    #20c997 !default;
-$cyan:    #29abe0 !default;
+$cyan:    #75caeb !default;
 
 $primary:       $blue !default;
-$secondary:     $gray-600 !default;
+$secondary:     $gray-200 !default;
 $success:       $green !default;
 $info:          $cyan !default;
-$warning:       $orange !default;
+$warning:       $yellow !default;
 $danger:        $red !default;
-$light:         $gray-200 !default;
-$dark:          $gray-800 !default;
+$light:         $gray-100 !default;
+$dark:          $gray-700 !default;
 
-$min-contrast-ratio:   2 !default;
-
-// Body
-
-$body-color:                $gray-800 !default;
-
-// Links
-
-$link-color:                $success !default;
+$min-contrast-ratio:   1.75 !default;
 
 // Fonts
 
 // stylelint-disable-next-line value-keyword-case
-$font-family-sans-serif:      Roboto, -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol" !default;
-$headings-font-weight:        400 !default;
+$font-family-sans-serif:      "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol" !default;
+
+// Tables
+
+$table-bg-scale:              0 !default;
+
+// Buttons
+
+$btn-font-weight:             700 !default;
 
 // Dropdowns
 
-$dropdown-link-color:               $gray-600 !default;
-$dropdown-link-hover-color:         $dropdown-link-color !default;
-$dropdown-link-hover-bg:            $gray-200 !default;
-$dropdown-link-active-color:        $dropdown-link-color !default;
-$dropdown-link-active-bg:           $dropdown-link-hover-bg !default;
+$dropdown-link-color:         rgba(0, 0, 0, .5) !default;
 
 // Navs
 
-$nav-link-padding-x:                .9rem !default;
-$nav-link-disabled-color:           $gray-300 !default;
-$nav-tabs-border-color:             $gray-300 !default;
-$nav-tabs-link-hover-border-color:  $gray-300 !default;
-$nav-tabs-link-active-bg:           $white !default;
-$nav-pills-link-active-color:       $gray-600 !default;
-$nav-pills-link-active-bg:          $gray-200 !default;
-
-// Navbar
-
-$navbar-dark-hover-color:           $white !default;
-$navbar-light-hover-color:          $black !default;
-$navbar-light-active-color:         $black !default;
+$nav-tabs-border-color:             $gray-200 !default;
+$nav-tabs-link-hover-border-color:  $nav-tabs-border-color !default;
+$nav-tabs-link-active-color:        $gray-900 !default;
+$nav-tabs-link-active-border-color: $nav-tabs-border-color !default;
 
 // Pagination
 
-$pagination-color:                  $gray-600 !default;
+$pagination-color:                  $gray-700 !default;
 $pagination-bg:                     $gray-200 !default;
-$pagination-border-color:           $gray-300 !default;
 $pagination-hover-color:            $pagination-color !default;
-$pagination-active-color:           $pagination-color !default;
-$pagination-active-bg:              $gray-300 !default;
-$pagination-active-border-color:    $gray-300 !default;
-$pagination-disabled-color:         $gray-300 !default;
-$pagination-disabled-bg:            $gray-200 !default;
-$pagination-disabled-border-color:  $pagination-border-color !default;
-
-// Cards
-
-$card-border-color:                 rgba($gray-300, .75) !default;
-$card-cap-bg:                       rgba($gray-200, .25) !default;
-
-// Popovers
-
-$popover-header-bg:                 $gray-200 !default;
-
-// Modals
-
-$modal-content-border-color:        $gray-300 !default;
-$modal-header-border-color:         $modal-content-border-color !default;
-
-// Progress bars
-
-$progress-bg:                       $gray-300 !default;
-$progress-border-radius:            10px !default;
-$progress-bar-color:                $primary !default;
-
-// List group
-
-$list-group-border-color:           $gray-300 !default;
-$list-group-hover-bg:               $gray-200 !default;
-$list-group-active-color:           $body-color !default;
-$list-group-active-bg:              $gray-200 !default;
-$list-group-active-border-color:    $gray-300 !default;
-$list-group-disabled-color:         $gray-500 !default;
-$list-group-disabled-bg:            $white !default;
-$list-group-action-color:           $list-group-active-color !default;
-$list-group-action-active-color:    $list-group-active-color !default;
-$list-group-action-active-bg:       $gray-300 !default;
+$pagination-hover-bg:               $pagination-bg !default;
+$pagination-active-border-color:    darken($primary, 5%) !default;
+$pagination-disabled-color:         $gray-600 !default;
+$pagination-disabled-bg:            $pagination-bg !default;
 
 // Breadcrumbs
 
@@ -132,12 +82,15 @@ $breadcrumb-padding-x:              .75rem !default;
 $breadcrumb-bg:                     $pagination-bg !default;
 $breadcrumb-border-radius:          .25rem !default;
 
+// Modals
+
+$modal-content-border-color:        rgba($black, .1) !default;
+
 // Close
 
 $btn-close-color:            $white !default;
-$btn-close-opacity:          .8 !default;
+$btn-close-opacity:          .4 !default;
 $btn-close-hover-opacity:    1 !default;
-
 
 $color-ranges: (
   0: 0,

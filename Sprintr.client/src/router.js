@@ -10,6 +10,18 @@ const routes = [
     path: '/',
     name: 'Home',
     component: loadPage('HomePage')
+  },
+  {
+    path: '/project/:projectId',
+    name: 'ProjectPage',
+    component: loadPage('ProjectPage'),
+    children: [
+      {
+        path: 'backlog/:backlogId',
+        name: 'BacklogPage',
+        component: loadPage('BacklogPage')
+      }
+    ]
   }
 ]
 
