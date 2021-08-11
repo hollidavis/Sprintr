@@ -1,8 +1,14 @@
 <template>
-  <ChildNavbar />
-  <div class="col-12 shadow">
-    Project Page
-    <!-- <router-link :to="{name: BacklogPage}"></router-link> -->
+  <div class="col-12 p-0">
+    <div class="row">
+      <div class="col-12 child-navbar">
+        <ChildNavbar />
+      </div>
+      <div class="col-12">
+        <p>Project Page</p>
+        <!-- <router-link :to="{name: BacklogPage}"></router-link> -->
+      </div>
+    </div>
   </div>
 </template>
 
@@ -17,5 +23,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
+.child-navbar{
+  height: fit-content;
+}
 </style>
