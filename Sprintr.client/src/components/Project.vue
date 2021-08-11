@@ -47,7 +47,7 @@ export default {
       async setActiveProject() {
         try {
           await projectsService.setActiveProject(props.project.id)
-          router.push({ name: 'ProjectPage', params: { projectId: props.project.id } })
+          router.push({ name: 'BacklogPage', params: { projectId: props.project.id } })
         } catch (error) {
           Pop.toast(error, 'error')
         }

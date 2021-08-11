@@ -1,6 +1,6 @@
 <template>
   <nav class="child-navbar navbar navbar-expand-lg navbar-dark bg-primary">
-    <a class="navbar-brand" href="#">{{ activeProject.name }}</a>
+    <a class="navbar-brand" href="#">{{ active.name }}</a>
     <button class="navbar-toggler"
             type="button"
             data-bs-toggle="collapse"
@@ -15,66 +15,30 @@
     <div class="collapse navbar-collapse" id="navbarColor01">
       <ul class="navbar-nav me-auto">
         <li class="nav-item">
-          <a class="nav-link active" href="#">Home
-            <span class="visually-hidden">(current)</span>
-          </a>
+          <router-link :to="{name:'BacklogPage' }" class="nav-link active">
+            BackLog
+          </router-link>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Features</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Pricing</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">About</a>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle"
-             data-bs-toggle="dropdown"
-             href="#"
-             role="button"
-             aria-haspopup="true"
-             aria-expanded="false"
-          >Dropdown</a>
-          <div class="dropdown-menu">
-            <a class="dropdown-item" href="#">Action</a>
-            <a class="dropdown-item" href="#">Another action</a>
-            <a class="dropdown-item" href="#">Something else here</a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">Separated link</a>
-          </div>
+        <li class="nav-item" v-for="sprint in sprints" :key="sprint.id">
+          <router-link :to="{name:'SprintPage', params: { sprintId: sprint.id } }" class="nav-link active" href="#">
+            {{ sprint.name }}
+          </router-link>
         </li>
       </ul>
-      <form class="d-flex">
-        <input class="form-control me-sm-2" type="text" placeholder="Search">
-        <button class="btn btn-secondary my-2 my-sm-0" type="submit">
-          Search
-        </button>
-      </form>
     </div>
   </nav>
 </template>
 
 <script>
-import { computed, onMounted } from '@vue/runtime-core'
-import { AppState } from '../AppState'
-import { useRoute } from 'vue-router'
-import { projectsService } from '../services/ProjectsService'
-import Pop from '../utils/Notifier'
 export default {
   name: 'ChildNavbar',
+  props: {
+    active: { type: Object, required: true },
+    sprints: { type: Array, required: true },
+    backlogs: { type: Array, required: true }
+  },
   setup() {
-    const router = useRoute()
-    onMounted(async() => {
-      try {
-        await projectsService.setActiveProject(router.params.id)
-      } catch (error) {
-        Pop.toast(error, 'error')
-      }
-    })
-    return {
-      activeProject: computed(() => AppState.activeProject)
-    }
+    return {}
   },
   components: {}
 }

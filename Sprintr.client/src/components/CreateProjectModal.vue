@@ -75,7 +75,7 @@ export default {
           const newId = await projectsService.createProject(state.newProject)
           state.newProject = {}
           $('#createProjectModal').modal('hide')
-          router.push({ name: 'ProjectPage', params: { projectId: newId } })
+          router.push({ name: 'BacklogPage', params: { projectId: newId } })
         } catch (error) {
           Pop.toast(error, 'error')
         }

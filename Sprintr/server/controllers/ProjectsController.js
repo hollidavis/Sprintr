@@ -8,11 +8,11 @@ export class ProjectsController extends BaseController {
   constructor() {
     super('api/projects')
     this.router
+      .use(Auth0Provider.getAuthorizedUserInfo)
       .get('', this.getAll)
       .get('/:id', this.getOne)
       .get('/:id/backlogs', this.getBacklogByProjectId)
       .get('/:id/sprints', this.getSprintsByProjectId)
-      .use(Auth0Provider.getAuthorizedUserInfo)
       .post('', this.create)
       .delete('/:id', this.destroy)
   }

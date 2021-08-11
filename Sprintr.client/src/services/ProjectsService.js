@@ -9,6 +9,18 @@ class ProjectsService {
     AppState.projects = res.data
   }
 
+  async getSprintsByProjectId(id) {
+    const res = await api.get('api/projects/' + id + '/sprints')
+    AppState.sprints = res.data
+    logger.log(res.data)
+  }
+
+  async getBacklogsByProjectId(id) {
+    const res = await api.get('api/projects/' + id + '/backlogs')
+    AppState.backlogs = res.data
+    logger.log(res.data)
+  }
+
   async createProject(newProject) {
     const res = await api.post('api/projects', newProject)
     AppState.activeProject = res.data

@@ -7,10 +7,10 @@ export class BacklogsController extends BaseController {
   constructor() {
     super('api/backlogs')
     this.router
+      .use(Auth0Provider.getAuthorizedUserInfo)
       .get('', this.getAll)
       .get('/:id', this.getOne)
       .get('/:id/tasks', this.getTasksByBacklogId)
-      .use(Auth0Provider.getAuthorizedUserInfo)
       .post('', this.create)
       .delete('/:id', this.destroy)
   }

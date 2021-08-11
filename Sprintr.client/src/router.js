@@ -15,11 +15,19 @@ const routes = [
     path: '/project/:projectId',
     name: 'ProjectPage',
     component: loadPage('ProjectPage'),
+    beforeEnter: authGuard,
     children: [
       {
-        path: 'backlog/:backlogId',
+        path: 'backlog',
         name: 'BacklogPage',
-        component: loadPage('BacklogPage')
+        component: loadPage('BacklogPage'),
+        beforeEnter: authGuard
+      },
+      {
+        path: 'sprint/:sprintId',
+        name: 'SprintPage',
+        component: loadPage('SprintPage'),
+        beforeEnter: authGuard
       }
     ]
   }
