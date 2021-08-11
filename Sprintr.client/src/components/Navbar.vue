@@ -1,69 +1,65 @@
 <template>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <router-link class="navbar-brand d-flex" :to="{ name: 'Home' }">
-      <div class="d-flex flex-column align-items-center">
-        <img
-          alt="logo"
-          src="../assets/img/cw-logo.png"
-          height="45"
-        />
-      </div>
-    </router-link>
-    <button
-      class="navbar-toggler"
-      type="button"
-      data-toggle="collapse"
-      data-target="#navbarText"
-      aria-controls="navbarText"
-      aria-expanded="false"
-      aria-label="Toggle navigation"
-    >
-      <span class="navbar-toggler-icon" />
-    </button>
-    <div class="collapse navbar-collapse" id="navbarText">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item">
-          <router-link :to="{ name: 'Home' }" class="nav-link">
-            Home
-          </router-link>
-        </li>
-      </ul>
-      <span class="navbar-text">
-        <button
-          class="btn btn-outline-primary text-uppercase"
-          @click="login"
-          v-if="!user.isAuthenticated"
-        >
-          Login
-        </button>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <div class="container-fluid">
+      <router-link class="navbar-brand d-flex" :to="{ name: 'Home' }">
+        Sprintr
+      </router-link>
+      <button class="navbar-toggler"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#navbarColor01"
+              aria-controls="navbarColor01"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
 
-        <div class="dropdown" v-else>
-          <div
-            class="dropdown-toggle"
-            @click="state.dropOpen = !state.dropOpen"
+      <div class="collapse navbar-collapse" id="navbarColor01">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <router-link class="nav-link text-light" :to="{ name: 'Home' }">
+              Home
+            </router-link>
+          </li>
+        </ul>
+        <span class="navbar-text">
+          <button
+            class="btn btn-outline-primary text-uppercase"
+            @click="login"
+            v-if="!user.isAuthenticated"
           >
-            <img
-              :src="user.picture"
-              alt="user photo"
-              height="40"
-              class="rounded"
-            />
-            <span class="mx-3">{{ user.name }}</span>
-          </div>
-          <div
-            class="dropdown-menu p-0 list-group w-100"
-            :class="{ show: state.dropOpen }"
-            @click="state.dropOpen = false"
-          >
+            Login
+          </button>
+
+          <div class="dropdown" v-else>
             <div
-              class="list-group-item list-group-item-action hoverable"
-              @click="logout"
+              class="dropdown-toggle"
+              @click="state.dropOpen = !state.dropOpen"
             >
-              logout
+              <img
+                :src="user.picture"
+                alt="user photo"
+                height="40"
+                class="rounded"
+              />
+              <span class="mx-3">{{ user.name }}</span>
+            </div>
+            <div
+              class="dropdown-menu p-0 list-group w-100"
+              :class="{ show: state.dropOpen }"
+              @click="state.dropOpen = false"
+            >
+              <div
+                class="list-group-item list-group-item-action hoverable"
+                @click="logout"
+              >
+                logout
+              </div>
             </div>
           </div>
-        </div>
-      </span>
+        </span>
+      </div>
     </div>
   </nav>
 </template>
