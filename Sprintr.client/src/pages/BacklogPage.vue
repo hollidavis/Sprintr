@@ -1,14 +1,20 @@
 <template>
-  <div class="">
-    Backlog Page
+  <div class="row">
+    <div class="col-12" v-for="b in backlogs" :key="b.id">
+      <Backlog :backlog="backlogs" />
+    </div>
   </div>
 </template>
 
 <script>
+import { computed } from '@vue/runtime-core'
+import { AppState } from '../AppState'
 export default {
   name: 'BacklogPage',
   setup() {
-    return {}
+    return {
+      backlogs: computed(() => AppState.backlogs)
+    }
   },
   components: {}
 }

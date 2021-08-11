@@ -1,5 +1,4 @@
 import { AppState } from '../AppState'
-import { logger } from '../utils/Logger'
 import { convertToQuery } from '../utils/Query'
 import { api } from './AxiosService'
 
@@ -12,13 +11,11 @@ class ProjectsService {
   async getSprintsByProjectId(id) {
     const res = await api.get('api/projects/' + id + '/sprints')
     AppState.sprints = res.data
-    logger.log(res.data)
   }
 
   async getBacklogsByProjectId(id) {
     const res = await api.get('api/projects/' + id + '/backlogs')
     AppState.backlogs = res.data
-    logger.log(res.data)
   }
 
   async createProject(newProject) {
@@ -36,7 +33,6 @@ class ProjectsService {
   async setActiveProject(id) {
     const res = await api.get('api/projects/' + id)
     AppState.activeProject = res.data
-    logger.log(res.data)
   }
 }
 

@@ -1,6 +1,8 @@
 <template>
-  <div class="">
-    Sprint Page
+  <div class="row">
+    <div class="col-12">
+      <Sprint />
+    </div>
   </div>
 </template>
 
@@ -9,8 +11,7 @@ export default {
   name: 'SprintPage',
   setup() {
     return {}
-  },
-  components: {}
+  }
 }
 </script>
 

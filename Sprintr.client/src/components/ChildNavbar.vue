@@ -1,6 +1,6 @@
 <template>
   <nav class="child-navbar navbar navbar-expand-lg navbar-dark bg-primary">
-    <a class="navbar-brand" href="#">{{ active.name }}</a>
+    <a class="navbar-brand">{{ active.name }}</a>
     <button class="navbar-toggler"
             type="button"
             data-bs-toggle="collapse"
@@ -19,9 +19,9 @@
             BackLog
           </router-link>
         </li>
-        <li class="nav-item" v-for="sprint in sprints" :key="sprint.id">
-          <router-link :to="{name:'SprintPage', params: { sprintId: sprint.id } }" class="nav-link active" href="#">
-            {{ sprint.name }}
+        <li class="nav-item" v-for="s in sprints" :key="s.id">
+          <router-link :to="{name:'SprintPage', params: { sprintId: s.id } }" class="nav-link active" href="#">
+            {{ s.name }}
           </router-link>
         </li>
       </ul>
