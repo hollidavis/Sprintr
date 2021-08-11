@@ -5,15 +5,11 @@
 @import "./_utilities.scss";
 @import "./_overrides.scss";
 
-:root {
-  --grey: #f6f6f6;
-}
-
 #app {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  background-color: $body-bg;
+  background-color: $light;
   overflow-x: hidden;
   scroll-behavior: smooth;
 }

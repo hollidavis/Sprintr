@@ -1,65 +1,63 @@
 <template>
   <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-    <div class="container-fluid">
-      <router-link class="navbar-brand d-flex" :to="{ name: 'Home' }">
-        Sprintr
-      </router-link>
-      <button class="navbar-toggler"
-              type="button"
-              data-bs-toggle="collapse"
-              data-bs-target="#navbarColor01"
-              aria-controls="navbarColor01"
-              aria-expanded="false"
-              aria-label="Toggle navigation"
-      >
-        <span class="navbar-toggler-icon"></span>
-      </button>
+    <router-link class="navbar-brand" :to="{ name: 'Home' }">
+      Sprintr
+    </router-link>
+    <button class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarColor01"
+            aria-controls="navbarColor01"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
-      <div class="collapse navbar-collapse" id="navbarColor01">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item">
-            <router-link class="nav-link text-light" :to="{ name: 'Home' }">
-              Home
-            </router-link>
-          </li>
-        </ul>
-        <span class="navbar-text">
-          <button
-            class="btn btn-outline-primary text-uppercase"
-            @click="login"
-            v-if="!user.isAuthenticated"
+    <div class="collapse navbar-collapse" id="navbarColor01">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <router-link class="nav-link text-light" :to="{ name: 'Home' }">
+            Home
+          </router-link>
+        </li>
+      </ul>
+      <span class="navbar-text">
+        <button
+          class="btn btn-outline-primary text-uppercase"
+          @click="login"
+          v-if="!user.isAuthenticated"
+        >
+          Login
+        </button>
+
+        <div class="dropdown" v-else>
+          <div
+            class="dropdown-toggle"
+            @click="state.dropOpen = !state.dropOpen"
           >
-            Login
-          </button>
-
-          <div class="dropdown" v-else>
+            <img
+              :src="user.picture"
+              alt="user photo"
+              height="40"
+              class="rounded"
+            />
+            <span class="mx-3">{{ user.name }}</span>
+          </div>
+          <div
+            class="dropdown-menu p-0 list-group w-100"
+            :class="{ show: state.dropOpen }"
+            @click="state.dropOpen = false"
+          >
             <div
-              class="dropdown-toggle"
-              @click="state.dropOpen = !state.dropOpen"
+              class="list-group-item list-group-item-action hoverable"
+              @click="logout"
             >
-              <img
-                :src="user.picture"
-                alt="user photo"
-                height="40"
-                class="rounded"
-              />
-              <span class="mx-3">{{ user.name }}</span>
-            </div>
-            <div
-              class="dropdown-menu p-0 list-group w-100"
-              :class="{ show: state.dropOpen }"
-              @click="state.dropOpen = false"
-            >
-              <div
-                class="list-group-item list-group-item-action hoverable"
-                @click="logout"
-              >
-                logout
-              </div>
+              logout
             </div>
           </div>
-        </span>
-      </div>
+        </div>
+      </span>
     </div>
   </nav>
 </template>

@@ -1,8 +1,10 @@
 <template>
-  <header>
-    <Navbar />
+  <header class="row">
+    <div class="col-12 p-0">
+      <Navbar />
+    </div>
   </header>
-  <main class="container-fluid">
+  <main class="row">
     <router-view />
   </main>
 </template>
