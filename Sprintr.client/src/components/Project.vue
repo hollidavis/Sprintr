@@ -1,11 +1,13 @@
 <template>
   <div class="project row my-4 mx-2 line bg-primary shadow rounded">
     <div class="col-11 d-flex text-light align-items-center py-2">
-      <router-link class="text-light" :to="{ name: 'ProjectPage', params: { projectId: project.id } }" :title="project.name + ' Details Page'">
-        <h3 class="m-0 mr-4">
-          {{ project.name }}
-        </h3>
-      </router-link>
+      <h3 class="m-0 mr-4 pointer"
+          :title="'Navigate to '
+            + project.name + ' Details Page'"
+          @click="setActiveProject"
+      >
+        {{ project.name }}
+      </h3>
       <p class="m-0 text-break">
         {{ project.description }}
       </p>
@@ -19,6 +21,7 @@
 </template>
 
 <script>
+import { router } from '../router'
 import { projectsService } from '../services/ProjectsService'
 import Pop from '../utils/Notifier'
 export default {
@@ -37,6 +40,14 @@ export default {
             await projectsService.deleteProject(props.project.id)
             Pop.toast('Successfully Deleted!', 'success')
           }
+        } catch (error) {
+          Pop.toast(error, 'error')
+        }
+      },
+      async setActiveProject() {
+        try {
+          await projectsService.setActiveProject(props.project.id)
+          router.push({ name: 'ProjectPage', params: { projectId: props.project.id } })
         } catch (error) {
           Pop.toast(error, 'error')
         }

@@ -1,7 +1,8 @@
 <template>
+  <ChildNavbar />
   <div class="col-12 shadow">
     Project Page
-    <router-link :to="{name: BacklogPage}"></router-link>
+    <!-- <router-link :to="{name: BacklogPage}"></router-link> -->
   </div>
 </template>
 
