@@ -31,7 +31,6 @@
 
 <script>
 export default {
-  name: 'ChildNavbar',
   props: {
     active: { type: Object, required: true },
     sprints: { type: Array, required: true },
@@ -39,8 +38,7 @@ export default {
   },
   setup() {
     return {}
-  },
-  components: {}
+  }
 }
 </script>
 

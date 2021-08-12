@@ -8,14 +8,12 @@
 
 <script>
 export default {
-  name: 'Backlog',
   props: {
     backlog: { type: Object, required: true }
   },
   setup() {
     return {}
-  },
-  components: {}
+  }
 }
 </script>
 

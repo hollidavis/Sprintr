@@ -63,7 +63,6 @@ import { projectsService } from '../services/ProjectsService'
 import $ from 'jquery'
 import { router } from '../router'
 export default {
-  name: 'CreateProjectModal',
   setup() {
     const state = reactive({
       newProject: {}
@@ -81,8 +80,7 @@ export default {
         }
       }
     }
-  },
-  components: {}
+  }
 }
 </script>
 

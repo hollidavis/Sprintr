@@ -25,7 +25,6 @@ import { router } from '../router'
 import { projectsService } from '../services/ProjectsService'
 import Pop from '../utils/Notifier'
 export default {
-  name: 'Project',
   props: {
     project: {
       type: Object,

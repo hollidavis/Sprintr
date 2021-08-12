@@ -10,13 +10,11 @@
 import { computed } from '@vue/runtime-core'
 import { AppState } from '../AppState'
 export default {
-  name: 'BacklogPage',
   setup() {
     return {
       backlogs: computed(() => AppState.backlogs)
     }
-  },
-  components: {}
+  }
 }
 </script>
 

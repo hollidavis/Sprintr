@@ -13,7 +13,6 @@ import Pop from '../utils/Notifier'
 import { useRoute } from 'vue-router'
 import { AppState } from '../AppState'
 export default {
-  name: 'SprintPage',
   setup() {
     const route = useRoute()
     watchEffect(async() => {

@@ -21,7 +21,6 @@ import { projectsService } from '../services/ProjectsService'
 import Pop from '../utils/Notifier'
 import { AppState } from '../AppState'
 export default {
-  name: 'ProjectPage',
   setup() {
     const route = useRoute()
     onMounted(async() => {
@@ -38,8 +37,7 @@ export default {
       sprints: computed(() => AppState.sprints),
       backlogs: computed(() => AppState.backlogs)
     }
-  },
-  components: {}
+  }
 }
 </script>
 

@@ -30,7 +30,6 @@
 import { computed } from '@vue/runtime-core'
 import { AppState } from '../AppState'
 export default {
-  name: 'Home',
   setup() {
     return {
       projects: computed(() => AppState.projects)
