@@ -1,6 +1,8 @@
 <template>
-  <div class="row bg-primary shadow  mx-2 mt-2">
-    <div class="col-11 d-flex text-light align-items-center py-2">
+  <!-- Backlog info card -->
+  <div class="row bg-primary shadow mx-2 mt-2">
+    <!-- Name/Collapse Button -->
+    <div class="d-flex text-light align-items-center py-2">
       <button class="btn mr-2"
               type="button"
               data-toggle="collapse"
@@ -18,19 +20,45 @@
         {{ backlog.description }}
       </p>
     </div>
-    <div class="col-1 text-light d-flex align-items-center justify-content-end">
+    <!-- Total Weight -->
+    <div class="text-light d-flex align-items-center justify-content-end m-3 mr-auto">
+      <p class="lead m-0">
+        <span class="fa fa-balance-scale"></span> <b>0</b>
+      </p>
+    </div>
+    <!-- Add Task Button -->
+    <div class="d-flex text-light align-items-center">
+      <button type="submit"
+              class="btn btn-sm btn-outline-light mr-3"
+              data-toggle="modal"
+              data-target="#createTaskModal"
+              title="Create Task Button"
+      >
+        + Add Task
+      </button>
+    </div>
+    <!-- Task Completed Count -->
+    <div class="text-light d-flex align-items-center justify-content-end">
+      <p class="lead m-0">
+        <b>0/0 Tasks Completed</b>
+      </p>
+    </div>
+    <!-- Delort Button -->
+    <div class="text-light d-flex align-items-center justify-content-end m-3">
       <p class="m-0 pointer" :title="'Delete ' + backlog.name" @click="deleteBacklog">
         <span class="fas fa-trash"></span>
       </p>
     </div>
   </div>
+  <!-- Collapsible -->
   <div class="collapse" :id="'collapse' + backlog.id">
     <div class="row bg-info shadow mx-2">
       <div class="col-12" v-for="t in tasks" :key="t.id">
-        <Task :task="tasks" />
+        <Task :task="t" />
       </div>
     </div>
   </div>
+  <CreateTaskModal :backlog="backlog" />
 </template>
 
 <script>

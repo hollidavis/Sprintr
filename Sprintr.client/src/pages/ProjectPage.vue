@@ -5,24 +5,6 @@
         <ChildNavbar :active="activeProject" :sprints="sprints" :backlogs="backlogs" />
       </div>
       <div class="row w-100">
-        <!-- <div class="col-6">
-          <div class="ml-3 mt-2 d-flex flex-column justify-content-center">
-            <h3 class="m-0">
-              Backlog Items
-            </h3>
-            <p class="m-0">
-              Group your tasks into backlogs for over-arching collections for better organization.
-            </p>
-          </div>
-          <div class="ml-3 mt-2 d-flex flex-column justify-content-center">
-            <h3 class="m-0">
-              Backlog Items
-            </h3>
-            <p class="m-0">
-              Group your tasks into backlogs for over-arching collections for better organization.
-            </p>
-          </div>
-        </div> -->
         <div class="col-12 d-flex justify-content-end my-3">
           <!-- create backlog button -->
           <button type="submit"
