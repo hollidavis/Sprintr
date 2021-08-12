@@ -1,7 +1,7 @@
 <template>
   <div class="row">
     <div class="col-12">
-      {{ backlog }}
+      {{ backlog.name }}
     </div>
   </div>
 </template>

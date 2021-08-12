@@ -5,7 +5,7 @@
         <ChildNavbar :active="activeProject" :sprints="sprints" :backlogs="backlogs" />
       </div>
       <div class="col-12">
-        <p>{{ activeProject }}</p>
+        <p>{{ activeProject.name }}</p>
       </div>
       <div class="col-12">
         <router-view />
