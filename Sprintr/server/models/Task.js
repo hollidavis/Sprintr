@@ -3,7 +3,7 @@ const Schema = mongoose.Schema
 const ObjectId = Schema.Types.ObjectId
 export const TaskSchema = new Schema(
   {
-    status: { type: String, enum: ['pending', 'in-progress', 'review', 'done'] },
+    status: { type: String, enum: ['Pending', 'In-Progress', 'Review', 'Done'] },
     weight: { type: Number, required: true },
     body: { type: String, require: true },
     sprintId: { type: ObjectId, ref: 'Sprint' },

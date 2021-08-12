@@ -88,7 +88,7 @@ export default {
       async createSprint() {
         try {
           const newId = await sprintsService.createSprint(state.newSprint)
-          state.newSprint = {}
+          state.newSprint = { projectId: route.params.projectId }
           $('#createSprintModal').modal('hide')
           router.push({ name: 'SprintPage', params: { sprintId: newId } })
         } catch (error) {

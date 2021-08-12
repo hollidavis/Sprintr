@@ -23,7 +23,7 @@
     <!-- Total Weight -->
     <div class="text-light d-flex align-items-center justify-content-end m-3 mr-auto">
       <p class="lead m-0">
-        <span class="fa fa-balance-scale"></span> <b>0</b>
+        <span class="fa fa-balance-scale"></span> <b>{{ totalWeight }}</b>
       </p>
     </div>
     <!-- Add Task Button -->
@@ -31,18 +31,18 @@
       <button type="submit"
               class="btn btn-sm btn-outline-light mr-3"
               data-toggle="modal"
-              data-target="#createTaskModal"
+              :data-target="'#createTaskModal' + backlog.id"
               title="Create Task Button"
       >
         + Add Task
       </button>
     </div>
-    <!-- Task Completed Count -->
+    <!-- Task Completed Count
     <div class="text-light d-flex align-items-center justify-content-end">
       <p class="lead m-0">
         <b>0/0 Tasks Completed</b>
       </p>
-    </div>
+    </div> -->
     <!-- Delort Button -->
     <div class="text-light d-flex align-items-center justify-content-end m-3">
       <p class="m-0 pointer" :title="'Delete ' + backlog.name" @click="deleteBacklog">
@@ -67,12 +67,15 @@ import { useRoute } from 'vue-router'
 import { backlogsService } from '../services/BacklogsService'
 import Pop from '../utils/Notifier'
 import { AppState } from '../AppState'
+import { tasksService } from '../services/TasksService'
 export default {
   props: {
     backlog: { type: Object, required: true }
   },
   setup(props) {
     const route = useRoute()
+    const tasks = computed(() => AppState.tasks[props.backlog.id] || [])
+    const totalWeight = computed(() => tasksService.countWeight(tasks.value))
     onMounted(async() => {
       try {
         await backlogsService.getTasksByBacklogId(props.backlog.id)
@@ -81,7 +84,8 @@ export default {
       }
     })
     return {
-      tasks: computed(() => AppState.tasks[props.backlog.id] || []),
+      tasks,
+      totalWeight,
       async deleteBacklog() {
         try {
           if (await Pop.confirm()) {

@@ -15,7 +15,6 @@ class BacklogsService {
 
   async getTasksByBacklogId(id) {
     const res = await api.get('api/backlogs/' + id + '/tasks')
-    console.log(res.data)
     AppState.tasks[id] = res.data
   }
 }

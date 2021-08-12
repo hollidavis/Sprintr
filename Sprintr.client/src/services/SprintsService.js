@@ -14,6 +14,12 @@ class SprintsService {
     projectsService.getSprintsByProjectId(res.data.projectId)
     return res.data.id
   }
+
+  convertTime(time) {
+    const converted = new Date(time.toDateString())
+    console.log(converted)
+    return converted
+  }
 }
 
 export const sprintsService = new SprintsService()

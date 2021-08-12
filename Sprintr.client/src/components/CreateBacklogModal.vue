@@ -76,7 +76,7 @@ export default {
       async createBacklog() {
         try {
           await backlogsService.createBacklog(state.newBacklog)
-          state.newBacklog = {}
+          state.newBacklog = { projectId: route.params.projectId }
           $('#createBacklogModal').modal('hide')
           router.push({ name: 'BacklogPage' })
         } catch (error) {

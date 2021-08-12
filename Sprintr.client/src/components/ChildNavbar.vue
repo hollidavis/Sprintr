@@ -15,12 +15,12 @@
     <div class="collapse navbar-collapse" id="navbarColor01">
       <ul class="navbar-nav me-auto">
         <li class="nav-item">
-          <router-link :to="{name:'BacklogPage' }" class="nav-link active">
+          <router-link :to="{name:'BacklogPage' }" class="nav-link active" title="Navigate to Backlog Page">
             BackLog
           </router-link>
         </li>
         <li class="nav-item" v-for="s in sprints" :key="s.id">
-          <router-link :to="{name:'SprintPage', params: { sprintId: s.id } }" class="nav-link active" href="#">
+          <router-link :to="{name:'SprintPage', params: { sprintId: s.id } }" class="nav-link active" :title="'Navigate to ' + s.name + ' Page'">
             {{ s.name }}
           </router-link>
         </li>

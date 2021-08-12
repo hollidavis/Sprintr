@@ -1,7 +1,7 @@
 <template>
   <!-- Modal -->
   <div class="modal fade"
-       id="createTaskModal"
+       :id="'createTaskModal' + backlog.id"
        tabindex="-1"
        role="dialog"
        aria-labelledby="modelTitleId"
@@ -28,16 +28,16 @@
                 aria-describedby="helpId"
                 required
               >
-                <option value="pending" selected>
+                <option value="Pending" selected>
                   Pending
                 </option>
-                <option value="in-progress">
+                <option value="In-Progress">
                   In-Progress
                 </option>
-                <option value="review">
+                <option value="Review">
                   Review
                 </option>
-                <option value="done">
+                <option value="Done">
                   Done
                 </option>
               </select>
@@ -85,7 +85,6 @@ import { reactive } from '@vue/reactivity'
 import Pop from '../utils/Notifier'
 import { tasksService } from '../services/TasksService'
 import $ from 'jquery'
-import { router } from '../router'
 export default {
   props: {
     backlog: { type: Object, required: true }
@@ -102,8 +101,11 @@ export default {
       async createTask() {
         try {
           await tasksService.createTask(state.newTask)
-          state.newTask = {}
-          $('#createTaskModal').modal('hide')
+          state.newTask = {
+            backlogId: props.backlog.id,
+            projectId: props.backlog.projectId
+          }
+          $('#createTaskModal' + props.backlog.id).modal('hide')
         } catch (error) {
           Pop.toast(error, 'error')
         }
