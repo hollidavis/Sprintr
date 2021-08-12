@@ -1,5 +1,5 @@
 <template>
-  <div class="project row my-4 mx-2 line bg-primary shadow rounded">
+  <div class="project row my-4 mx-2 bg-primary shadow rounded">
     <div class="col-11 d-flex text-light align-items-center py-2">
       <h3 class="m-0 mr-4 pointer"
           :title="'Navigate to '

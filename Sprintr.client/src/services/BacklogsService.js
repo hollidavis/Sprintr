@@ -1,3 +1,4 @@
+import { AppState } from '../AppState'
 import { api } from './AxiosService'
 import { projectsService } from './ProjectsService'
 
@@ -10,6 +11,12 @@ class BacklogsService {
   async deleteBacklog(backlogId, projectId) {
     await api.delete('api/backlogs/' + backlogId)
     projectsService.getBacklogsByProjectId(projectId)
+  }
+
+  async getTasksByBacklogId(id) {
+    const res = await api.get('api/backlogs/' + id + '/tasks')
+    console.log(res.data)
+    AppState.tasks[id] = res.data
   }
 }
 

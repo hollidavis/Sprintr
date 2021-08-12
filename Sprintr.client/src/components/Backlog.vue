@@ -1,5 +1,5 @@
 <template>
-  <div class="row line bg-primary shadow rounded m-2">
+  <div class="row bg-primary shadow  mx-2 mt-2">
     <div class="col-11 d-flex text-light align-items-center py-2">
       <button class="btn mr-2"
               type="button"
@@ -25,25 +25,35 @@
     </div>
   </div>
   <div class="collapse" :id="'collapse' + backlog.id">
-    <div class="row">
-      <div class="col-12">
-        <p>{{ backlog.name }}</p>
+    <div class="row bg-info shadow mx-2">
+      <div class="col-12" v-for="t in tasks" :key="t.id">
+        <Task :task="tasks" />
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import { computed, onMounted } from '@vue/runtime-core'
 import { useRoute } from 'vue-router'
 import { backlogsService } from '../services/BacklogsService'
 import Pop from '../utils/Notifier'
+import { AppState } from '../AppState'
 export default {
   props: {
     backlog: { type: Object, required: true }
   },
   setup(props) {
     const route = useRoute()
+    onMounted(async() => {
+      try {
+        await backlogsService.getTasksByBacklogId(props.backlog.id)
+      } catch (error) {
+        Pop.toast(error, 'error')
+      }
+    })
     return {
+      tasks: computed(() => AppState.tasks[props.backlog.id] || []),
       async deleteBacklog() {
         try {
           if (await Pop.confirm()) {
