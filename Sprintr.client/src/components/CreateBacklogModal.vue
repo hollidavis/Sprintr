@@ -75,10 +75,10 @@ export default {
       state,
       async createBacklog() {
         try {
-          const newId = await backlogsService.createBacklog(state.newBacklog)
+          await backlogsService.createBacklog(state.newBacklog)
           state.newBacklog = {}
           $('#createBacklogModal').modal('hide')
-          router.push({ name: 'BacklogPage', params: { backlogId: newId } })
+          router.push({ name: 'BacklogPage' })
         } catch (error) {
           Pop.toast(error, 'error')
         }

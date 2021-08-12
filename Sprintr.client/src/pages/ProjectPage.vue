@@ -4,6 +4,28 @@
       <div class="col-12 child-navbar">
         <ChildNavbar :active="activeProject" :sprints="sprints" :backlogs="backlogs" />
       </div>
+      <div class="row w-100">
+        <div class="col-12 d-flex justify-content-end my-3">
+          <!-- create backlog button -->
+          <button type="submit"
+                  class="btn btn-outline-primary mr-3"
+                  data-toggle="modal"
+                  data-target="#createBacklogModal"
+                  title="Create Backlog Button"
+          >
+            New Backlog Item
+          </button>
+          <!-- create sprint button -->
+          <button type="submit"
+                  class="btn btn-outline-primary"
+                  data-toggle="modal"
+                  data-target="#createSprintModal"
+                  title="Create Sprint Button"
+          >
+            New Sprint
+          </button>
+        </div>
+      </div>
       <div class="col-12">
         <p>{{ activeProject.name }}</p>
       </div>
@@ -12,6 +34,8 @@
       </div>
     </div>
   </div>
+  <CreateBacklogModal />
+  <CreateSprintModal />
 </template>
 
 <script>
