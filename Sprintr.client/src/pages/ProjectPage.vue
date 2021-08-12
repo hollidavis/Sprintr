@@ -8,7 +8,7 @@
         <div class="col-12 d-flex justify-content-end my-3">
           <!-- create backlog button -->
           <button type="submit"
-                  class="btn btn-outline-primary mr-3"
+                  class="btn btn-outline-success mr-3"
                   data-toggle="modal"
                   data-target="#createBacklogModal"
                   title="Create Backlog Button"
@@ -17,7 +17,7 @@
           </button>
           <!-- create sprint button -->
           <button type="submit"
-                  class="btn btn-outline-primary"
+                  class="btn btn-outline-success"
                   data-toggle="modal"
                   data-target="#createSprintModal"
                   title="Create Sprint Button"
