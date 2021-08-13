@@ -1,5 +1,5 @@
 <template>
-  <div class="row bg-info rounded shadow mx-2">
+  <div class="row bg-info rounded shadow m-2">
     <div class="col-12 d-flex align-items-center my-2">
       <p class="m-0 mr-2 pointer" title="Delete Task" @click="deleteTask">
         <span class="fas fa-times"></span>
