@@ -26,3 +26,7 @@ main {
 .text-shadow{
   text-shadow: 1px 1px 1px black;
 }
+
+.line{
+  border-bottom: 1px solid $secondary;
+}

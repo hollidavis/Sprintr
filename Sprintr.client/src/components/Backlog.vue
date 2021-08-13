@@ -11,10 +11,7 @@
       >
         <span class="fas fa-chevron-down text-white"></span>
       </button>
-      <h3 class="m-0 mr-4 pointer"
-          :title="'Navigate to '
-            + backlog.name + ' Details Page'"
-      >
+      <h3 class="m-0 mr-4">
         {{ backlog.name }}
       </h3>
       <p class="m-0 text-break">

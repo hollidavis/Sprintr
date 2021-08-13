@@ -28,7 +28,7 @@
                 :aria-describedby="backlog.name+'TaskStatus'"
                 required
               >
-                <option value="Pending" selected>
+                <option value="Pending">
                   Pending
                 </option>
                 <option value="In-Progress">

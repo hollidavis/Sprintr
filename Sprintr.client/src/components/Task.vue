@@ -4,7 +4,11 @@
       <p class="m-0 mr-2 pointer" title="Delete Task" @click="deleteTask">
         <span class="fas fa-times"></span>
       </p>
-      <h5 class="m-0 mr-auto">
+      <h5 class="m-0 mr-auto pointer"
+          data-toggle="modal"
+          :data-target="'#taskDetailsModal'+ task.id"
+          title="See Task Details"
+      >
         <b>{{ task.body }}</b>
       </h5>
       <p class="m-0 mr-3">
@@ -15,6 +19,7 @@
       </p>
     </div>
   </div>
+  <TaskDetailsModal :task="task" />
 </template>
 
 <script>

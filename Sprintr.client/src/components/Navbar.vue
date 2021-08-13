@@ -19,7 +19,7 @@
           </router-link>
         </li> -->
       </ul>
-      <span class="navbar-text">
+      <span class="navbar-text pointer">
         <button
           class="btn btn-outline-primary text-uppercase"
           @click="login"
