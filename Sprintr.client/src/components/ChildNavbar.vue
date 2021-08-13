@@ -26,18 +26,39 @@
         </li>
       </ul>
     </div>
+    <p class="m-0 pointer" title="Delete Project" @click="deleteProject">
+      <span class="fas fa-trash"></span>
+    </p>
   </nav>
 </template>
 
 <script>
+import { useRoute } from 'vue-router'
+import { router } from '../router'
+import { projectsService } from '../services/ProjectsService'
+import Pop from '../utils/Notifier'
 export default {
   props: {
     active: { type: Object, required: true },
     sprints: { type: Array, required: true },
     backlogs: { type: Array, required: true }
   },
-  setup() {
-    return {}
+  setup(props) {
+    const route = useRoute()
+    return {
+      route,
+      async deleteProject() {
+        try {
+          if (await Pop.confirm()) {
+            await projectsService.deleteProject(route.params.projectId)
+            Pop.toast('Successfully Deleted!', 'success')
+          }
+          router.push({ name: 'Home' })
+        } catch (error) {
+          Pop.toast(error, 'error')
+        }
+      }
+    }
   }
 }
 </script>
