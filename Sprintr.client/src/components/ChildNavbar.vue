@@ -1,5 +1,5 @@
 <template>
-  <nav class="child-navbar navbar navbar-expand-lg navbar-dark bg-primary">
+  <nav class="child-navbar navbar navbar-expand-lg navbar-dark bg-primary text-shadow">
     <a class="navbar-brand">{{ active.name }}</a>
     <button class="navbar-toggler"
             type="button"

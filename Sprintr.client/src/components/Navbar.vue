@@ -1,20 +1,17 @@
 <template>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <router-link class="navbar-brand" :to="{ name: 'Home' }" title="Navigate to Home Page">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark d-flex">
+    <router-link class="navbar-brand mr-auto" :to="{ name: 'Home' }" title="Navigate to Home Page">
       Sprintr
     </router-link>
     <button class="navbar-toggler"
             type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarColor01"
-            aria-controls="navbarColor01"
             aria-expanded="false"
-            aria-label="Toggle navigation"
+            aria-label="Navigation"
     >
       <span class="navbar-toggler-icon"></span>
     </button>
 
-    <div class="collapse navbar-collapse" id="navbarColor01">
+    <div class="">
       <ul class="navbar-nav mr-auto">
         <!-- <li class="nav-item">
           <router-link class="nav-link text-light" :to="{ name: 'Home' }">

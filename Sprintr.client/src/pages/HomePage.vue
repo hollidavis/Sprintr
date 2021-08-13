@@ -12,7 +12,7 @@
       </div>
       <div class="col-6 d-flex justify-content-end">
         <button type="button"
-                class="btn btn-outline-success"
+                class="btn btn-outline-success shadow"
                 data-toggle="modal"
                 data-target="#createProjectModal"
                 title="Create Project Button"

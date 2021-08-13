@@ -25,7 +25,7 @@
                 name="status"
                 v-model="state.newTask.status"
                 class="form-control"
-                aria-describedby="helpId"
+                :aria-describedby="backlog.name+'TaskStatus'"
                 required
               >
                 <option value="Pending" selected>
@@ -41,7 +41,7 @@
                   Done
                 </option>
               </select>
-              <small id="helpId" class="text-muted">Input Task Status</small>
+              <small :id="backlog.name+'TaskStatus'" class="text-muted">Input Task Status</small>
             </div>
             <!-- body input -->
             <div class="form-group">
@@ -50,10 +50,10 @@
                      v-model="state.newTask.body"
                      class="form-control"
                      placeholder="Task Description..."
-                     aria-describedby="helpId"
+                     :aria-describedby="backlog.name+'TaskDescription'"
                      required
               >
-              <small id="helpId" class="text-muted">Input Task Description</small>
+              <small :id="backlog.name+'TaskDescription'" class="text-muted">Input Task Description</small>
             </div>
             <!-- weight input -->
             <div class="form-group">
@@ -62,10 +62,10 @@
                      v-model="state.newTask.weight"
                      class="form-control"
                      placeholder="Task Weight..."
-                     aria-describedby="helpId"
+                     :aria-describedby="backlog.name+'TaskWeight'"
                      required
               >
-              <small id="helpId" class="text-muted">Input Task Weight</small>
+              <small :id="backlog.name+'TaskWeight'" class="text-muted">Input Task Weight</small>
             </div>
             <button type="button" class="btn btn-secondary" data-dismiss="modal">
               Close

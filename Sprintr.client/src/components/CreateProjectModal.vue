@@ -26,10 +26,10 @@
                      v-model="state.newProject.name"
                      class="form-control"
                      placeholder="Project Name..."
-                     aria-describedby="helpId"
+                     aria-describedby="inputProjectName"
                      required
               >
-              <small id="helpId" class="text-muted">Input Project Name</small>
+              <small id="inputProjectName" class="text-muted">Input Project Name</small>
             </div>
             <!-- description input -->
             <div class="form-group">
@@ -38,10 +38,10 @@
                      v-model="state.newProject.description"
                      class="form-control"
                      placeholder="Project Description..."
-                     aria-describedby="helpId"
+                     aria-describedby="inputProjectDescription"
                      required
               >
-              <small id="helpId" class="text-muted">Input Project Description</small>
+              <small id="inputProjectDescription" class="text-muted">Input Project Description</small>
             </div>
             <button type="button" class="btn btn-secondary" data-dismiss="modal">
               Close
@@ -75,6 +75,7 @@ export default {
           state.newProject = {}
           $('#createProjectModal').modal('hide')
           router.push({ name: 'BacklogPage', params: { projectId: newId } })
+          Pop.toast('Successfully Created', 'success')
         } catch (error) {
           Pop.toast(error, 'error')
         }

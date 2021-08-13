@@ -26,10 +26,10 @@
                      v-model="state.newSprint.name"
                      class="form-control"
                      placeholder="Sprint Name..."
-                     aria-describedby="helpId"
+                     aria-describedby="inputSprintName"
                      required
               >
-              <small id="helpId" class="text-muted">Input Sprint Name</small>
+              <small id="inputSprintName" class="text-muted">Input Sprint Name</small>
             </div>
             <!-- startDate input -->
             <div class="form-group">
@@ -38,10 +38,10 @@
                      v-model="state.newSprint.startDate"
                      class="form-control"
                      placeholder="Sprint Start Date..."
-                     aria-describedby="helpId"
+                     aria-describedby="inputSprintStartDate"
                      required
               >
-              <small id="helpId" class="text-muted">Input Sprint Start Date</small>
+              <small id="inputSprintStartDate" class="text-muted">Input Sprint Start Date</small>
             </div>
             <!-- endDate input -->
             <div class="form-group">
@@ -50,10 +50,10 @@
                      v-model="state.newSprint.endDate"
                      class="form-control"
                      placeholder="Sprint End Date..."
-                     aria-describedby="helpId"
+                     aria-describedby="inputSprintEndDate"
                      required
               >
-              <small id="helpId" class="text-muted">Input Sprint End Date</small>
+              <small id="inputSprintEndDate" class="text-muted">Input Sprint End Date</small>
             </div>
             <button type="button" class="btn btn-secondary" data-dismiss="modal">
               Close

@@ -1,17 +1,17 @@
 <template>
-  <div class="row">
+  <div class="row bg-info rounded shadow mx-2">
     <div class="col-12 d-flex align-items-center my-2">
       <p class="m-0 mr-2 pointer" title="Delete Task" @click="deleteTask">
         <span class="fas fa-times"></span>
       </p>
       <h5 class="m-0 mr-auto">
-        {{ task.body }}
+        <b>{{ task.body }}</b>
       </h5>
       <p class="m-0 mr-3">
         <span class="fa fa-balance-scale"></span> <b>{{ task.weight }}</b>
       </p>
       <p class="m-0">
-        {{ task.status }}
+        <b>{{ task.status }}</b>
       </p>
     </div>
   </div>
@@ -27,10 +27,12 @@ export default {
   setup(props) {
     return {
       async deleteTask() {
-        try {
-          await tasksService.deleteTask(props.task.id, props.task.backlogId)
-        } catch (error) {
-          Pop.toast(error, 'error')
+        if (await Pop.confirm()) {
+          try {
+            await tasksService.deleteTask(props.task.id, props.task.backlogId)
+          } catch (error) {
+            Pop.toast(error, 'error')
+          }
         }
       }
     }

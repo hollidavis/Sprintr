@@ -26,10 +26,10 @@
                      v-model="state.newBacklog.name"
                      class="form-control"
                      placeholder="Backlog Name..."
-                     aria-describedby="helpId"
+                     aria-describedby="inputBacklogName"
                      required
               >
-              <small id="helpId" class="text-muted">Input Backlog Name</small>
+              <small id="inputBacklogName" class="text-muted">Input Backlog Name</small>
             </div>
             <!-- body input -->
             <div class="form-group">
@@ -38,10 +38,10 @@
                      v-model="state.newBacklog.body"
                      class="form-control"
                      placeholder="Backlog Description..."
-                     aria-describedby="helpId"
+                     aria-describedby="inputBacklogDescription"
                      required
               >
-              <small id="helpId" class="text-muted">Input Backlog Description</small>
+              <small id="inputBacklogDescription" class="text-muted">Input Backlog Description</small>
             </div>
             <button type="button" class="btn btn-secondary" data-dismiss="modal">
               Close

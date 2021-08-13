@@ -1,14 +1,14 @@
 <template>
   <div class="project row my-4 mx-2 bg-primary shadow rounded">
     <div class="col-11 d-flex text-light align-items-center py-2">
-      <h3 class="m-0 mr-4 pointer"
+      <h3 class="m-0 mr-4 pointer text-shadow"
           :title="'Navigate to '
             + project.name + ' Details Page'"
           @click="setActiveProject"
       >
         {{ project.name }}
       </h3>
-      <p class="m-0 text-break">
+      <p class="m-0 text-break text-shadow">
         {{ project.description }}
       </p>
     </div>

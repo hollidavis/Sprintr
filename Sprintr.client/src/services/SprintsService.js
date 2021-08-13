@@ -22,7 +22,6 @@ class SprintsService {
   async getTasksBySprintId(id) {
     const res = await api.get('api/sprints/' + id + '/tasks')
     AppState.tasks[id] = res.data
-    console.log(res.data)
   }
 }
 
