@@ -19,10 +19,6 @@ class TasksService {
     })
     return weight
   }
-
-  countCompleted(tasks) {
-
-  }
 }
 
 export const tasksService = new TasksService()

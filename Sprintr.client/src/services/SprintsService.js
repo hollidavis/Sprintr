@@ -1,5 +1,4 @@
 import { AppState } from '../AppState'
-import { logger } from '../utils/Logger'
 import { api } from './AxiosService'
 import { projectsService } from './ProjectsService'
 
@@ -15,10 +14,15 @@ class SprintsService {
     return res.data.id
   }
 
-  convertTime(time) {
-    const converted = new Date(time.toDateString())
-    console.log(converted)
-    return converted
+  async deleteSprint(sprintId, projectId) {
+    await api.delete('api/sprints/' + sprintId)
+    projectsService.getSprintsByProjectId(projectId)
+  }
+
+  async getTasksBySprintId(id) {
+    const res = await api.get('api/sprints/' + id + '/tasks')
+    AppState.tasks[id] = res.data
+    console.log(res.data)
   }
 }
 

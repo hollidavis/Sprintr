@@ -106,6 +106,7 @@ export default {
             projectId: props.backlog.projectId
           }
           $('#createTaskModal' + props.backlog.id).modal('hide')
+          Pop.toast('Successfully Created!', 'success')
         } catch (error) {
           Pop.toast(error, 'error')
         }
