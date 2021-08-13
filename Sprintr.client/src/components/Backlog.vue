@@ -15,7 +15,7 @@
         {{ backlog.name }}
       </h3>
       <p class="m-0 text-break">
-        {{ backlog.description }}
+        {{ backlog.body }}
       </p>
     </div>
     <!-- Total Weight -->
